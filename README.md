@@ -86,12 +86,12 @@ JSON
     }
 ```
 
-    ###### Headers
+###### Headers
     |Header name|Description|
     |-----------|-----------|
     |**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
 
-    ###### Errors
+###### Errors
     |Code|Description|
     |----|-----------|
     |401|Integration token is invalid|

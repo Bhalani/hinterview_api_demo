@@ -44,7 +44,7 @@ JSON
 
 ### Candidate APIs
     Here you have add candidates and interview them by Video tool.
-
+<br/>
 #### Create Candidate
 **POST /api/v1/candidates**
 
@@ -98,7 +98,8 @@ JSON
 |401|Integration token is invalid|
 |400|Query parameter "include" is not allowed or has a restricted value|
 
-
+<br/>
+<br/>
 
 #### List Candidate
 **GET /api/v1/candidates**
@@ -160,7 +161,8 @@ JSON
 |401|Integration token is invalid|
 |400|Query parameter "include" is not allowed or has a restricted value|
 
-
+<br/>
+<br/>
 
 #### Get Candidate
 **GET /api/v1/candidates/:id**
@@ -264,7 +266,8 @@ JSON
 |400|Query parameter "include" is not allowed or has a restricted value|
 |404|Candidate was not found|
 
-
+<br/>
+<br/>
 
 #### Delete Candidate
 **DELETE /api/v1/candidates/:id**
@@ -297,10 +300,12 @@ JSON
 |400|Query parameter "include" is not allowed or has a restricted value|
 |404|Candidate was not found|
 
-
-
+<br/>
+<br/>
+<br/>
 
 ###Video Session
+<br/>
 
 #### Create Video Session
 **POST /api/v1/candidate/:candidate_id/video_sessions**
@@ -375,7 +380,8 @@ Response Example
 |404|Candidate was not found|
 |422|Video session parameters are not valid|
 
-
+<br/>
+<br/>
 
 #### Get Video Session
 **GET /api/v1/video_sessions/:id**
@@ -478,7 +484,8 @@ Response Example
 |400|Query parameter "include" is not allowed or has a restricted value|
 |404|Candidate was not found|
 
-
+<br/>
+<br/>
 
 #### Delete Video Session
 **DELETE /api/v1/video_sessions/:id**

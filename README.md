@@ -45,7 +45,7 @@ JSON
 ### Candidate APIs
     Here you have add candidates and interview them by Video tool.
 
-#### [Create Candidate]
+#### Create Candidate
 **POST /api/v1/candidates**
 
     Response Example
@@ -100,7 +100,7 @@ JSON
 
 
 
-#### [List Candidate]
+#### List Candidate
 **GET /api/v1/candidates**
 
     Response Example
@@ -162,7 +162,7 @@ JSON
 
 
 
-#### [Get Candidate]
+#### Get Candidate
 **GET /api/v1/candidates/:id**
 
     Example URL
@@ -266,7 +266,7 @@ JSON
 
 
 
-#### [DELETE Candidate]
+#### Delete Candidate
 **DELETE /api/v1/candidates/:id**
 
     Example URL
@@ -302,7 +302,7 @@ JSON
 
 ###Video Session
 
-#### [Create Video Session]
+#### Create Video Session
 **POST /api/v1/candidate/:candidate_id/video_sessions**
 
 Example URL
@@ -377,7 +377,7 @@ Response Example
 
 
 
-#### [Get Video Session API]
+#### Get Video Session
 **GET /api/v1/video_sessions/:id**
 
 Example URL
@@ -480,7 +480,7 @@ Response Example
 
 
 
-#### [Get Video Session API]
+#### Delete Video Session
 **DELETE /api/v1/video_sessions/:id**
 
 Example URL

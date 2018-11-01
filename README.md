@@ -87,15 +87,15 @@ JSON
 ```
 
 ###### Headers
-    |Header name|Description|
-    |-----------|-----------|
-    |**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
 
 ###### Errors
-    |Code|Description|
-    |----|-----------|
-    |401|Integration token is invalid|
-    |400|Query parameter "include" is not allowed or has a restricted value|
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
 
 
 #### List Candidate

@@ -1,4 +1,4 @@
-# Introduction
+# Hinterview
 
 ## What is Hinterview?
 You might be wondering what Hinterview is and what this all means for you. 
@@ -45,7 +45,7 @@ JSON
 ### Candidate APIs
     Here you have add candidates and interview them by Video tool.
 
-#### Create Candidate API
+#### [Create Candidate API]
 **POST /api/v1/candidates**
 
     Response Example
@@ -99,7 +99,7 @@ JSON
 |400|Query parameter "include" is not allowed or has a restricted value|
 
 
-#### List Candidate
+#### [List Candidate]
 **GET /api/v1/candidates**
 
     Response Example
@@ -160,7 +160,7 @@ JSON
 |400|Query parameter "include" is not allowed or has a restricted value|
 
 
-#### Get Candidate API
+#### [Get Candidate API]
 **GET /api/v1/candidates/:id**
 
     Example URL
@@ -168,7 +168,7 @@ JSON
     GET /api/v1/candidates/0b1370a6-7b35-4f8a-b585-6d06fe738533?include=video_sessions
 ```
 
-Params
+###### Params
 |Param name|Description|
 |----------|-----------|
 |**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
@@ -264,7 +264,7 @@ Params
 
 
 
-#### DELETE Candidate API
+#### [DELETE Candidate API]
 **DELETE /api/v1/candidates/:id**
 
     Example URL
@@ -272,7 +272,7 @@ Params
     DELETE /api/v1/candidates/0b1370a6-7b35-4f8a-b585-6d06fe738533
 ```
 
-Params
+###### Params
 |Param name|Description|
 |----------|-----------|
 |**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
@@ -294,4 +294,219 @@ Params
 |401|Integration token is invalid|
 |400|Query parameter "include" is not allowed or has a restricted value|
 |404|Candidate was not found|
+
+
+
+###Video Session
+
+#### [Create Video Session API]
+**POST /api/v1/candidate/:candidate_id/video_sessions**
+
+Example URL
+```
+  POST /api/v1/candidates/282dad45-7eaa-41b5-b4c5-24679cf91c65/video_sessions
+```
+
+Request Parameter
+```
+  data[attributes][max_bookmarks_count]=10&data[attributes][max_duration]=100
+```
+
+
+###### Params
+|Param name|Description|
+|----------|-----------|
+|**candidate_id** <br/> optional|Candidate ID<br/>**Validations:**<br/>-Must be a String|
+|**data**<br/>optional|**Validations:**<br/>-Must be a Hash|
+|**data[attributes]**<br/>optional|**Validations:**<br/>-Must be a Hash|
+|**data[attributes][max_duration]**<br/>optional|Maximum duration for a new video in seconds (0 > x >= 7200)<br/>**Validations:**<br/>-Must be a Integer|
+|**data[attributes][max_bookmarks_count]**<br/>optional|Maximum quantity of bookmarks for a new video (x >= 0)<br/>**Validations:**<br/>Must be a Integer|
+
+
+Response Example
+```
+  201
+  {
+    "data": {
+      "id": "2",
+      "type": "video_sessions",
+      "attributes": {
+        "archive_status": null,
+        "name": "8h8wg95f",
+        "created_at": "2017-10-09T09:36:51.830Z",
+        "duration": null,
+        "preview_image_url": "http://example.com/static/fallback/preview_image.png",
+        "created_by_company": null,
+        "slug": "8h8wg95f",
+        "created_at_in_words": "less than a minute ago",
+        "status": "not_recorded",
+        "session_id": null,
+        "max_duration": 100,
+        "max_bookmarks_count": 10,
+        "resource_url": null,
+        "edit_resource_url": "http://example.com/embedded/video_session?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImlkIjoyLCJyZWFkX29ubHkiOmZhbHNlfSwiZXhwIjoxNTA3NTQyNzExfQ.rbKu49RlCd3I0RlHEI1-f0nGBsdZzP_RScWWcxTn4bo",
+        "archive_started_at": null,
+        "archive_stopped_at": null,
+        "secure_video_url": false,
+        "has_video": false,
+        "requires_opentok_update": null,
+        "errors": [],
+        "created_by_user": {
+          "name": null
+        }
+      }
+    }
+  }
+```
+
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
+|404|Candidate was not found|
+|422|Video session parameters are not valid|
+
+
+
+#### [Get Video Session API]
+**GET /api/v1/video_sessions/:id**
+
+Example URL
+```
+  GET /api/v1/video_sessions/qvkjvqiu
+```
+
+###### Params
+|Param name|Description|
+|----------|-----------|
+|**id** <br/> required|Video session ID<br/>**Validations:**<br/>-Must be a String|
+
+
+Response Example
+
+* 1
+```
+200
+{
+  "data": {
+    "id": "4",
+    "type": "video_sessions",
+    "attributes": {
+      "archive_status": "uploaded",
+      "name": "qvkjvqiu",
+      "created_at": "2017-10-09T09:36:52.096Z",
+      "duration": 27.0,
+      "preview_image_url": "http://example.com/static/fallback/preview_image.png",
+      "created_by_company": null,
+      "slug": "qvkjvqiu",
+      "created_at_in_words": "less than a minute ago",
+      "status": "processed",
+      "session_id": "some_session",
+      "max_duration": 100,
+      "max_bookmarks_count": 10,
+      "resource_url": "http://example.com/embedded/video_session?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImlkIjo0LCJyZWFkX29ubHkiOnRydWV9LCJleHAiOjE1MDc1NDI3MTJ9.fC4jFr1c7ExJEyKwxA2isegOt01J1E2nnX1aTQ-1_FQ",
+      "edit_resource_url": "http://example.com/embedded/video_session?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImlkIjo0LCJyZWFkX29ubHkiOmZhbHNlfSwiZXhwIjoxNTA3NTQyNzEyfQ.6VtlUIOKcrn3uB6k304fdi2K2TWpgkcJJSO5NqBgiw0",
+      "archive_started_at": "2017-10-09T09:33:52.093Z",
+      "archive_stopped_at": "2017-10-09T09:35:52.094Z",
+      "secure_video_url": "https://big_buck_bunny.webm.s3.amazonaws.com/?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIAN5FSR5TEJQLYOA%2F20171009%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20171009T093652Z&X-Amz-Expires=900&X-Amz-SignedHeaders=host&X-Amz-Signature=99eeddf65562582a86eb219414ebe9d5537a343fd4648de572b770fd5e9616d3",
+      "has_video": true,
+      "requires_opentok_update": false,
+      "errors": [],
+      "created_by_user": {
+        "name": null
+      }
+    }
+  }
+}
+```
+
+* 2
+```
+200
+{
+  "data": {
+    "id": "5",
+    "type": "video_sessions",
+    "attributes": {
+      "archive_status": null,
+      "name": "3z3iypw6",
+      "created_at": "2017-10-09T09:36:52.263Z",
+      "duration": null,
+      "preview_image_url": "http://example.com/static/fallback/preview_image.png",
+      "created_by_company": null,
+      "slug": "3z3iypw6",
+      "created_at_in_words": "less than a minute ago",
+      "status": "not_recorded",
+      "session_id": null,
+      "max_duration": 100,
+      "max_bookmarks_count": 10,
+      "resource_url": null,
+      "edit_resource_url": "http://example.com/embedded/video_session?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImlkIjo1LCJyZWFkX29ubHkiOmZhbHNlfSwiZXhwIjoxNTA3NTQyNzEyfQ.o0oUbp8AD4oT-tFp7dVXs1r4Ksi7Jhf8rlBCpxJxbYs",
+      "archive_started_at": null,
+      "archive_stopped_at": null,
+      "secure_video_url": false,
+      "has_video": false,
+      "requires_opentok_update": null,
+      "errors": [],
+      "created_by_user": {
+        "name": null
+      }
+    }
+  }
+}
+```
+
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+
+
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
+|404|Candidate was not found|
+
+
+
+#### [Get Video Session API]
+**DELETE /api/v1/video_sessions/:id**
+
+Example URL
+```
+  DELETE /api/v1/video_sessions/qvkjvqiu
+```
+
+###### Params
+|Param name|Description|
+|----------|-----------|
+|**id** <br/> required|Video session ID<br/>**Validations:**<br/>-Must be a String|
+
+
+Response Example
+```
+204
+```
+
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+
+
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
+|404|Candidate was not found|
+
 

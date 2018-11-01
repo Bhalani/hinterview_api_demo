@@ -24,7 +24,8 @@ rails s # to start rails server and hit `localhost:3000` in addressbar
 Please Contact us here on [example@hinterview.com](mailto:example@hinterview.com) to register and get your accessibility of APIs.
 
 
-## API references
+
+# Hinterview Integration REST API references
 
 [Candidate](#candidates)
   - [Create Candidate](#create_candidate)
@@ -45,7 +46,7 @@ JSON
     Here you have add candidates and interview them by Video tool.
 
 #### Create Candidate API
-    **POST /api/v1/candidates**
+**POST /api/v1/candidates**
 
     Response Example
 ```
@@ -99,7 +100,7 @@ JSON
 
 
 #### List Candidate
-    **GET /api/v1/candidates**
+**GET /api/v1/candidates**
 
     Response Example
 ```
@@ -147,30 +148,32 @@ JSON
     }
 ```
 
-    ###### Headers
-    |Header name|Description|
-    |-----------|-----------|
-    |**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
 
-    ###### Errors
-    |Code|Description|
-    |----|-----------|
-    |401|Integration token is invalid|
-    |400|Query parameter "include" is not allowed or has a restricted value|
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
 
 
 #### Get Candidate API
-    **GET /api/v1/candidates/:id**
+**GET /api/v1/candidates/:id**
 
     Example URL
 ```
     GET /api/v1/candidates/0b1370a6-7b35-4f8a-b585-6d06fe738533?include=video_sessions
 ```
-    Params
-    |Param name|Description|
-    |----------|-----------|
-    |**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
-    |include<br/>optional|JSON API key to include video sessions of candidate<br/>**Validations:**<br/>-Must be one of: video_sessions.|
+
+Params
+|Param name|Description|
+|----------|-----------|
+|**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
+|include<br/>optional|JSON API key to include video sessions of candidate<br/>**Validations:**<br/>-Must be one of: video_sessions.|
+
 
     Response Example
 ```
@@ -247,46 +250,48 @@ JSON
     }
 ```
 
-    ###### Headers
-    |Header name|Description|
-    |-----------|-----------|
-    |**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
 
-    ###### Errors
-    |Code|Description|
-    |----|-----------|
-    |401|Integration token is invalid|
-    |400|Query parameter "include" is not allowed or has a restricted value|
-    |404|Candidate was not found|
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
+|404|Candidate was not found|
 
 
 
 #### DELETE Candidate API
-    **DELETE /api/v1/candidates/:id**
+**DELETE /api/v1/candidates/:id**
 
     Example URL
 ```
     DELETE /api/v1/candidates/0b1370a6-7b35-4f8a-b585-6d06fe738533
 ```
-    Params
-    |Param name|Description|
-    |----------|-----------|
-    |**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
+
+Params
+|Param name|Description|
+|----------|-----------|
+|**id** <br/> required|Candidate ID<br/>**Validations:**<br/>-Must be a String|
+
 
     Response Example
 ```
     204
 ```
 
-    ###### Headers
-    |Header name|Description|
-    |-----------|-----------|
-    |**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
+###### Headers
+|Header name|Description|
+|-----------|-----------|
+|**Authorization**<br/>required|Provide you access token Token token=\"testtoken\"|
 
-    ###### Errors
-    |Code|Description|
-    |----|-----------|
-    |401|Integration token is invalid|
-    |400|Query parameter "include" is not allowed or has a restricted value|
-    |404|Candidate was not found|
+###### Errors
+|Code|Description|
+|----|-----------|
+|401|Integration token is invalid|
+|400|Query parameter "include" is not allowed or has a restricted value|
+|404|Candidate was not found|
 

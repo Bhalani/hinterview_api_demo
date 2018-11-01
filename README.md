@@ -45,6 +45,7 @@ JSON
 ### Candidate APIs
     Here you have add candidates and interview them by Video tool.
 <br/>
+
 #### Create Candidate
 **POST /api/v1/candidates**
 

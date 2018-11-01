@@ -1,0 +1,36 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Candidate</h1>
+    </div>
+    <div class="col-md-6 wrapper">
+      <%= link_to "Create Candidate", candidates_path, method: :post, class: "pull-right btn btn-default" %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @candidates.data.each do |candidate| %>
+          <tr>
+            <td><%= candidate["name"] %></td>
+            <td><%= candidate["email"] %></td>
+            <td>
+              <%= link_to "View", candidate_path(candidate["id"]), class: "btn btn-primary" %> | 
+              <%= link_to "Create Video Session", new_video_session_path(candidate_id: candidate["id"]), class: "btn btn-success" %> | 
+              <%= link_to "Delete", candidates_path(candidate["id"]), method: :delete, class: "btn btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

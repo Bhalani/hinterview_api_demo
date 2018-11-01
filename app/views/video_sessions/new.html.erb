@@ -1,0 +1,34 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Create Video Session for <%= @candidate %></h1>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag video_sessions_path do %>
+      <%= hidden_field_tag :candidate_id, @candidate %>
+      <div class="form-group">
+        <lable class="col-md-3"><strong class="pull-right">max_duration:</strong></lable>
+        <div class="col-md-9">
+          <%= number_field_tag :max_duration, 0, class: "form-control" %>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <div class="form-group">
+        <lable class="col-md-3"><strong class="pull-right">max_bookmarks_count:</strong></lable>
+        <div class="col-md-9">
+          <%= number_field_tag :max_bookmarks_count, 0, class: "form-control" %>
+        </div>
+      </div>
+      <br/>
+      <br/>
+      <div class="col-md-12">
+        <%= submit_tag "Create VideoSession", class: "btn btn-primary pull-right" %>
+      </div>
+    <% end %>
+  </div>
+</div>

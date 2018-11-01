@@ -28,15 +28,15 @@ Please Contact us here on [example@hinterview.com](mailto:example@hinterview.com
 # Hinterview Integration REST API references
 
 [Candidate](#candidates)
-  - [Create Candidate](#create_candidate)
-  - [List Candidates](#list_candidates)
-  - [Get Candidate](#get_candidate)
-  - [Delete Canididate](#delete_candidate)
+  - [Create Candidate](#create-candidate)
+  - [List Candidates](#list-candidates)
+  - [Get Candidate](#get-candidate)
+  - [Delete Canididate](#delete-candidate)
 
-[Video Session](#video_session)
-  - [Create Video Session](#create_vs)
-  - [Show Video Session](#get_vs)
-  - [Delete Video Session](#delete_vs)
+[Video Session](#video-session)
+  - [Create Video Session](#create-video-session)
+  - [Show Video Session](#get-video-session)
+  - [Delete Video Session](#delete-video-session)
 
 ####Supported format for all APIs
 JSON
@@ -45,7 +45,7 @@ JSON
 ### Candidate APIs
     Here you have add candidates and interview them by Video tool.
 
-#### [Create Candidate API]
+#### [Create Candidate]
 **POST /api/v1/candidates**
 
     Response Example
@@ -97,6 +97,7 @@ JSON
 |----|-----------|
 |401|Integration token is invalid|
 |400|Query parameter "include" is not allowed or has a restricted value|
+
 
 
 #### [List Candidate]
@@ -160,7 +161,8 @@ JSON
 |400|Query parameter "include" is not allowed or has a restricted value|
 
 
-#### [Get Candidate API]
+
+#### [Get Candidate]
 **GET /api/v1/candidates/:id**
 
     Example URL
@@ -264,7 +266,7 @@ JSON
 
 
 
-#### [DELETE Candidate API]
+#### [DELETE Candidate]
 **DELETE /api/v1/candidates/:id**
 
     Example URL
@@ -297,9 +299,10 @@ JSON
 
 
 
+
 ###Video Session
 
-#### [Create Video Session API]
+#### [Create Video Session]
 **POST /api/v1/candidate/:candidate_id/video_sessions**
 
 Example URL

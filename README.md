@@ -23,6 +23,7 @@ rails s # to start rails server and hit `localhost:3000` in addressbar
 
 Please Contact us here on [example@hinterview.com](mailto:example@hinterview.com) to register and get your accessibility of APIs.
 
+You have to add that access key to request header as given below in request header params table.
 
 
 # Hinterview Integration REST API references
@@ -48,6 +49,8 @@ JSON
 
 #### Create Candidate
 **POST /api/v1/candidates**
+
+All you have to do is call the API, and it will add a candidate with necessary details. No parameter required.
 
     Response Example
 ```
@@ -311,6 +314,25 @@ JSON
 #### Create Video Session
 **POST /api/v1/candidate/:candidate_id/video_sessions**
 
+#### Note:
+Once the candidate is created, video_session can be created for a candidate.
+just need to pass the following parameters.
+
+There will be a Embedded URL to record a video_session in response, which can be access by iframe.
+
+###### Embedded URL example
+
+`edit_resource_url` is the parameter name contains the URL.
+Ex. "http://example.com/embedded/video_session?token=eyJhbGciOiJIUzI1NiJ9.eyJkYXRhIjp7ImlkIjoyLCJyZWFkX29ubHkiOmZhbHNlfSwiZXhwIjoxNTA3NTQyNzExfQ.rbKu49RlCd3I0RlHEI1-f0nGBsdZzP_RScWWcxTn4bo"
+
+The page contains few libraries which will need access of Camera and Microphone to record a video session.
+For that please try below iframe tag. You will found this same thing in this demo application.
+```
+<iframe allow="camera; microphone;" src="**<VideoSessionEbmeddedURL>**" name="video_session" id="video_session" width="100%" height="600px" frameBorder="0">
+</iframe>
+```
+Once the Video Session is recoreded, Video will be available on same screen once it's processed.
+
 Example URL
 ```
   POST /api/v1/candidates/282dad45-7eaa-41b5-b4c5-24679cf91c65/video_sessions
@@ -330,6 +352,8 @@ Request Parameter
 |**data[attributes]**<br/>optional|**Validations:**<br/>-Must be a Hash|
 |**data[attributes][max_duration]**<br/>optional|Maximum duration for a new video in seconds (0 > x >= 7200)<br/>**Validations:**<br/>-Must be a Integer|
 |**data[attributes][max_bookmarks_count]**<br/>optional|Maximum quantity of bookmarks for a new video (x >= 0)<br/>**Validations:**<br/>Must be a Integer|
+
+
 
 
 Response Example
@@ -387,9 +411,11 @@ Response Example
 #### Get Video Session
 **GET /api/v1/video_sessions/:id**
 
+You have access the recorded video session by this API.
+
 Example URL
 ```
-  GET /api/v1/video_sessions/qvkjvqiu
+  GET /api/v1/video_sessions/qvkjvqiu    # here qvkjvqiu is the ID.
 ```
 
 ###### Params

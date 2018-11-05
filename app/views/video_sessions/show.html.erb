@@ -17,11 +17,6 @@
       <% if v.class == Hash %>
         <% if src = v['edit_resource_url'] %>
           <iframe allow="camera; microphone;" src="<%= v['edit_resource_url'] %>" name="video_session" id="video_session" width="100%" height="600px" frameBorder="0">
-            <script type="text/javascript">
-              window.addEventListener('message', function(event) {
-                debugger
-              })
-            </script>
           </iframe>
         <% end %>
       <% else %>
@@ -30,21 +25,3 @@
     <% end %>
   </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    var frameee = document.getElementById('video_session');
-    frameee.contentWindow.postMessage({a: "a"}, '*');
-
-    var iframe = $("#video_session")
-    iframe.load(function(){
-      debugger
-      console.log(iframe.contents().find('.btn'));
-      console.log($(".btn"))
-      console.log($(this).contents());
-      debugger
-      $(".btn")
-      $(this).contents()
-    });
-  });
-</script>

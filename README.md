@@ -333,6 +333,9 @@ For that please try below iframe tag. You will found this same thing in this dem
 ```
 Once the Video Session is recoreded, Video will be available on same screen once it's processed.
 
+<br/>
+<br/>
+
 Example URL
 ```
   POST /api/v1/candidates/282dad45-7eaa-41b5-b4c5-24679cf91c65/video_sessions
